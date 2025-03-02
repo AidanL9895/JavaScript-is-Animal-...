@@ -92,7 +92,7 @@ let suki = {
 
   breed: "Jack Russel Terrier",
 
-  pic: "images\\suki.png",
+  pic: "suki.png",
 };
 
 petsData.splice(3, 0, suki);
@@ -106,21 +106,23 @@ linearListPets(petsData, " | ");
 
 
 const showInfo = () => {
-
   let petNumber = document.querySelector("#petNum").value;
-
   petNumber = parseInt(petNumber) - 1;
 
   let selectedPetInfo = document.querySelector(".selectedPetInfo");
-
-  let pet = petsData[petNumber];
-
-  selectedPetInfo.textContent = `${pet.petName} is a ${pet.breed}
-                              and is ${pet.age} years old.`;
   let petPic = document.querySelector(".selectedPetPic");
 
-  petPic.src = pet.pic;
-}
+  if (petNumber >= 0 && petNumber < petsData.length) {
+    let pet = petsData[petNumber];
+    selectedPetInfo.textContent = `${pet.petName} is a ${pet.breed} and is ${pet.age} years old.`;
+    petPic.src = pet.pic;
+    petPic.alt = pet.petName;
+  } else {
+    selectedPetInfo.textContent = "Invalid pet number.";
+    petPic.src = "";
+    petPic.alt = "Pet";
+  }
+};
 
 let petsInfo = document.querySelector(".petsInfo");
 
