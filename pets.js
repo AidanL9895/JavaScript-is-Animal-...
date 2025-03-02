@@ -4,35 +4,35 @@ const petsData = [
     age: 7,
     weightInKilos: 24,
     breed: "Dalmation",
-    pic: "images\\stella.png",
+    pic: "stella.png",
   },
   {
     petName: "Cody",
     age: 8,
     weightInKilos: 22,
     breed: "Corgi",
-    pic: "images\\cody.png",
+    pic: "cody.png",
   },
   {
     petName: "Mango",
     age: 2,
     weightInKilos: 11,
     breed: "Persian",
-    pic: "images\\mango.png",
+    pic: "mango.png",
   },
   {
     petName: "Lucy",
     age: 4,
     weightInKilos: 35,
     breed: "Ball Python",
-    pic: "images\\lucy.png",
+    pic: "lucy.png",
   },
   {
     petName: "Buhmie",
     age: 1,
     weightInKilos: 28,
     breed: "Bull-dog",
-    pic: "images\\buhmie.png",
+    pic: "buhmie.png",
   },
 ];
 
@@ -50,7 +50,7 @@ petsData.unshift({
   age: 3,
   weightInKilos: 28,
   breed: "Greyhound",
-  pic: "images\\carmie.png",
+  pic: "carmie.png",
 });
 
 // Now add a pet to the end of the array
@@ -59,7 +59,7 @@ petsData.push({
   age: 3,
   weightInKilos: 0.3,
   breed: "Mali Uromastyx",
-  pic: "images\\copper.png",
+  pic: "copper.png",
 });
 
 // List the pets by name
@@ -106,26 +106,24 @@ linearListPets(petsData, " | ");
 
 
 const showInfo = () => {
-  // get a handle to the input field and get the value
+
   let petNumber = document.querySelector("#petNum").value;
-  // the array is zero-based, so subtract 1
+
   petNumber = parseInt(petNumber) - 1;
-  // get a handle to the paragraph
+
   let selectedPetInfo = document.querySelector(".selectedPetInfo");
-  // get the correspoding petsData object
+
   let pet = petsData[petNumber];
-  // set the information
+
   selectedPetInfo.textContent = `${pet.petName} is a ${pet.breed}
                               and is ${pet.age} years old.`;
   let petPic = document.querySelector(".selectedPetPic");
-  // set the image
+
   petPic.src = pet.pic;
 }
-// ------------------------------------------------------
-// JAVASCRIPT
-// Get a handle to the petsInfo paragraph
+
 let petsInfo = document.querySelector(".petsInfo");
-// Add content by modifying the textContent property
+
 petsInfo.textContent = `Welcome to our newest pet,
                       ${petsData[petsData.length - 1].petName} the
                       ${petsData[petsData.length - 1].breed}`;
